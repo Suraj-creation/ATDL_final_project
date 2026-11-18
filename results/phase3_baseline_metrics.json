@@ -1,0 +1,81 @@
+{
+  "experiment": "E0_baseline_validation",
+  "checkpoint": "./outputs/checkpoints/phase3_baseline/E0_baseline/weights/best.pt",
+  "checkpoint_sha256": "24c2390c3baf517030b883211c99ec76204f8b6519786aca808fabfc7ce6ed7f",
+  "dataset_fingerprint": "d48b4bc255046f991c61420904b2f67bcfbb4dd628a5b5621f9a1f88cdedaa66",
+  "split": "val",
+  "metrics": {
+    "metrics/precision(B)": 0.6971628778405871,
+    "metrics/recall(B)": 0.6945229790139207,
+    "metrics/mAP50(B)": 0.7577527283037178,
+    "metrics/mAP50-95(B)": 0.43475602300053257,
+    "fitness": 0.43475602300053257
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "precision": 0.6287695122593893,
+      "recall": 0.30651465990571447,
+      "f1": 0.41212516782599196,
+      "ap50": 0.4656818188769638,
+      "ap50_95": 0.16967032825467276
+    },
+    {
+      "class_id": 1,
+      "class_name": "inclusion",
+      "precision": 0.7913810903269727,
+      "recall": 0.8092105263157895,
+      "f1": 0.8001965047937435,
+      "ap50": 0.8567424698915698,
+      "ap50_95": 0.44816338210964046
+    },
+    {
+      "class_id": 2,
+      "class_name": "patches",
+      "precision": 0.7805576201690719,
+      "recall": 0.9022556390977443,
+      "f1": 0.8370061390472998,
+      "ap50": 0.9164774845554341,
+      "ap50_95": 0.6058862305560561
+    },
+    {
+      "class_id": 3,
+      "class_name": "pitted_surface",
+      "precision": 0.784345321323348,
+      "recall": 0.7313432835820896,
+      "f1": 0.7569175896715994,
+      "ap50": 0.8331274686621747,
+      "ap50_95": 0.520939039155129
+    },
+    {
+      "class_id": 4,
+      "class_name": "rolled-in_scale",
+      "precision": 0.4862095715375095,
+      "recall": 0.49473684210526314,
+      "f1": 0.490436143459757,
+      "ap50": 0.5683455511480694,
+      "ap50_95": 0.291695833642447
+    },
+    {
+      "class_id": 5,
+      "class_name": "scratches",
+      "precision": 0.7117141514272313,
+      "recall": 0.9230769230769231,
+      "f1": 0.8037319499178395,
+      "ap50": 0.9061415766880949,
+      "ap50_95": 0.5721813242852504
+    }
+  ],
+  "macro_F1": 0.6834022491193719,
+  "inference_speed_ms_per_image": {
+    "preprocess": 0.3424091413407061,
+    "inference": 1.6526786393408937,
+    "loss": 0.0005737971164342156,
+    "postprocess": 0.4631106473008325
+  },
+  "model": "yolov8n.pt",
+  "epochs": 50,
+  "imgsz": 640,
+  "seed": 42
+}

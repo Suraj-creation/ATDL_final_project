@@ -1,0 +1,2 @@
+hamming_distance,path_a,path_b,sha256_equal
+0,train/images/patches/patches_101.jpg,train/images/patches/patches_105.jpg,True

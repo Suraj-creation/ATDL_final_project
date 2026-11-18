@@ -1,0 +1,84 @@
+{
+  "project": "Class-Imbalance-Aware Steel Surface Defect Detection Using Pretrained YOLO Models",
+  "created_utc": "2026-11-16T11:18:11.980253+00:00",
+  "raw_dataset_directory": "./data/raw/NEU-DET/NEU-DET",
+  "phase1_directory": "./data",
+  "coordinate_mode": "voc_1_based_inclusive",
+  "class_names": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "class_to_id": {
+    "crazing": 0,
+    "inclusion": 1,
+    "patches": 2,
+    "pitted_surface": 3,
+    "rolled-in_scale": 4,
+    "scratches": 5
+  },
+  "raw_image_count_matched": 1800,
+  "exact_duplicate_group_count": 1,
+  "exact_duplicate_images_excluded_from_modeling": 1,
+  "duplicate_annotation_conflict_group_count": 1,
+  "image_count_matched": 1799,
+  "image_count_converted": 1799,
+  "object_count_converted": 4186,
+  "split_method": "reused_existing_manifest",
+  "random_seed": 42,
+  "split_ratios_requested": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "split_image_counts": {
+    "train": 1257,
+    "test": 276,
+    "val": 266
+  },
+  "class_counts_before_split": [
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "image_presence_count": 300,
+      "object_count": 689
+    },
+    {
+      "class_id": 1,
+      "class_name": "inclusion",
+      "image_presence_count": 382,
+      "object_count": 1011
+    },
+    {
+      "class_id": 2,
+      "class_name": "patches",
+      "image_presence_count": 341,
+      "object_count": 878
+    },
+    {
+      "class_id": 3,
+      "class_name": "pitted_surface",
+      "image_presence_count": 301,
+      "object_count": 432
+    },
+    {
+      "class_id": 4,
+      "class_name": "rolled-in_scale",
+      "image_presence_count": 300,
+      "object_count": 628
+    },
+    {
+      "class_id": 5,
+      "class_name": "scratches",
+      "image_presence_count": 300,
+      "object_count": 548
+    }
+  ],
+  "dataset_yaml": "./configs/neu_det_yolo.yaml",
+  "split_manifest": "./data/splits/phase2_image_split.csv",
+  "conversion_manifest": "./results/phase2/yolo_conversion_manifest.csv",
+  "validation_status": "passed"
+}

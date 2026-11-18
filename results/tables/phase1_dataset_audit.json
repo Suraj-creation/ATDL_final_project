@@ -1,0 +1,52 @@
+{
+  "project_name": "ATDL Final Project",
+  "dataset_name": "NEU-DET",
+  "dataset_source": "Northeastern University NEU surface defect database; source URL documented in README.md",
+  "raw_dataset_directory": "./data/raw/NEU-DET/NEU-DET",
+  "dataset_zip": "./dataset/dataset.zip",
+  "dataset_sha256": "2ccaff85d88567c52708c2f9dc4dec10cff8650749df2984f03b38716998460f",
+  "image_statistics": {
+    "total_valid_images": 1800,
+    "corrupted_images": 0,
+    "image_formats": {
+      "JPEG": 1800
+    },
+    "image_modes": {
+      "RGB": 1800
+    },
+    "exact_duplicate_groups": 1,
+    "images_in_exact_duplicate_groups": 2
+  },
+  "annotation_statistics": {
+    "total_xml_files": 1800,
+    "successfully_parsed_xml": 1800,
+    "total_annotated_objects": 4189,
+    "class_counts": {
+      "crazing": 689,
+      "inclusion": 1011,
+      "patches": 881,
+      "pitted_surface": 432,
+      "rolled-in_scale": 628,
+      "scratches": 548
+    },
+    "parse_errors": [],
+    "invalid_annotations": []
+  },
+  "matching_statistics": {
+    "image_count": 1800,
+    "xml_count": 1800,
+    "matched_stem_count": 1800,
+    "unmatched_images": [],
+    "unmatched_xmls": [],
+    "ambiguous_image_stems": [],
+    "ambiguous_xml_stems": []
+  },
+  "class_distribution": {
+    "crazing": 689,
+    "inclusion": 1011,
+    "patches": 881,
+    "pitted_surface": 432,
+    "rolled-in_scale": 628,
+    "scratches": 548
+  }
+}

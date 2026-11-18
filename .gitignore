@@ -1,0 +1,31 @@
+# Python and VS Code
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+*.py[cod]
+
+# Reproducible generated dataset content
+data/raw/
+data/processed/
+data/imbalance_variants/
+dataset/*.zip
+
+# Keep each experiment's best checkpoint and reproducibility/evaluation files.
+# Omit duplicate last-epoch weights and batch-level preview images.
+outputs/checkpoints/**/weights/last.pt
+outputs/checkpoints/**/train_batch*.jpg
+outputs/checkpoints/**/val_batch*.jpg
+outputs/checkpoints/**/labels.jpg
+
+# Old results came from a split with a duplicate image crossing partitions.
+archive/pre_duplicate_group_split/*
+!archive/pre_duplicate_group_split/README.md
+
+# Large transient logs and generated caches
+outputs/logs/
+outputs/intermediate/
+outputs/plots/
+
+# Local editor state
+.vscode/

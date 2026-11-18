@@ -1,0 +1,67 @@
+{
+  "base_variant": "moderate",
+  "seed": 42,
+  "training_enabled": true,
+  "training_runtime_available": true,
+  "training_settings": {
+    "model": "yolov8n.pt",
+    "epochs": 50,
+    "imgsz": 640,
+    "batch": 16,
+    "patience": 12
+  },
+  "minority_classes": [
+    "crazing",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "repeat_factor_by_class": {
+    "patches": 2,
+    "pitted_surface": 2,
+    "scratches": 3,
+    "crazing": 2,
+    "inclusion": 1,
+    "rolled-in_scale": 2
+  },
+  "validation_test_unchanged": true,
+  "experiments": {
+    "E1_imbalanced_standard": {
+      "manifest": "./data/imbalance_variants/methods/E1_imbalanced_standard/method_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/methods/E1_imbalanced_standard/data.yaml",
+      "train_images": 808,
+      "training_type": "imbalance-aware method on moderate variant"
+    },
+    "E2_repeat_factor": {
+      "manifest": "./data/imbalance_variants/methods/E2_repeat_factor/method_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/methods/E2_repeat_factor/data.yaml",
+      "train_images": 1459,
+      "training_type": "imbalance-aware method on moderate variant"
+    },
+    "E3_targeted_augmentation": {
+      "manifest": "./data/imbalance_variants/methods/E3_targeted_augmentation/method_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/methods/E3_targeted_augmentation/data.yaml",
+      "train_images": 2056,
+      "training_type": "imbalance-aware method on moderate variant"
+    },
+    "E4_combined": {
+      "manifest": "./data/imbalance_variants/methods/E4_combined/method_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/methods/E4_combined/data.yaml",
+      "train_images": 2707,
+      "training_type": "imbalance-aware method on moderate variant"
+    },
+    "E1_mild_standard": {
+      "manifest": "./data/imbalance_variants/mild/selection_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/mild/data.yaml",
+      "train_images": 1109,
+      "training_type": "standard training at controlled imbalance severity"
+    },
+    "E1_severe_standard": {
+      "manifest": "./data/imbalance_variants/severe/selection_manifest.csv",
+      "dataset_yaml": "./data/imbalance_variants/severe/data.yaml",
+      "train_images": 597,
+      "training_type": "standard training at controlled imbalance severity"
+    }
+  },
+  "distribution_report": "./results/phase5_method_distribution.csv"
+}

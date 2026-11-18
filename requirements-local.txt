@@ -1,0 +1,17 @@
+# Common packages needed by the local data-preparation notebooks and runner.
+# Install PyTorch separately using a CUDA wheel compatible with the local driver.
+ipykernel>=7.0
+nbclient>=0.10
+nbformat>=5.10
+numpy>=2.0
+pandas>=2.2
+Pillow>=10.0
+matplotlib>=3.8
+PyYAML>=6.0
+lxml>=5.0
+scikit-learn>=1.5
+iterative-stratification>=0.1.9
+opencv-python>=4.10
+
+# Training and evaluation package used by the executed notebooks.
+ultralytics==8.4.215

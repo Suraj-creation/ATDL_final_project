@@ -1,0 +1,14 @@
+{
+  "input_sha256": {
+    "selection_manifest.csv": "5bcc681ba64c52af383d33009c667ca988631cc06ca891d8ab686ffb67c5f694",
+    "data.yaml": "e39abda10935fa0c56b6785eef085e9aecd612ded7ff15518b680dd25e8faf24",
+    "phase2_image_split.csv": "bb25e67f5286333debe2267edcb4d5eddfee8a36373939e2c7907f95796dd944"
+  },
+  "model": "yolov8n.pt",
+  "model_weights_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "epochs": 50,
+  "imgsz": 640,
+  "batch": 16,
+  "seed": 42,
+  "patience": 12
+}

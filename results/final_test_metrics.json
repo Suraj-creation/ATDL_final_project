@@ -1,0 +1,155 @@
+{
+  "selected_run": "E0_baseline",
+  "checkpoint": "./outputs/checkpoints/phase3_baseline/E0_baseline/weights/best.pt",
+  "checkpoint_sha256": "24c2390c3baf517030b883211c99ec76204f8b6519786aca808fabfc7ce6ed7f",
+  "split_manifest_sha256": "bb25e67f5286333debe2267edcb4d5eddfee8a36373939e2c7907f95796dd944",
+  "evaluated_split": "test",
+  "selection_split": "val",
+  "selection_rule": "highest macro AP50 over minority classes; tie-break by overall mAP50",
+  "global_metrics": {
+    "metrics/precision(B)": 0.7296768481227375,
+    "metrics/recall(B)": 0.708901984652095,
+    "metrics/mAP50(B)": 0.7746324926224246,
+    "metrics/mAP50-95(B)": 0.45055094331886464,
+    "fitness": 0.45055094331886464,
+    "metrics/F1(B)": 0.7191394089834455
+  },
+  "macro_F1": 0.7127070146220779,
+  "test_inference_speed_ms_per_image": {
+    "preprocess": 0.3893577503850279,
+    "inference": 1.638160761617853,
+    "loss": 0.00029043851258314174,
+    "postprocess": 0.44377756969787285
+  },
+  "confusion_matrix": [
+    [
+      98.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      3684.0
+    ],
+    [
+      0.0,
+      169.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      1442.0
+    ],
+    [
+      0.0,
+      1.0,
+      134.0,
+      0.0,
+      0.0,
+      0.0,
+      607.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      56.0,
+      0.0,
+      0.0,
+      1125.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      90.0,
+      0.0,
+      1782.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      86.0,
+      550.0
+    ],
+    [
+      2.0,
+      2.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "per_class": [
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "precision": 0.5200467141966826,
+      "recall": 0.29,
+      "ap50": 0.3820764933957065,
+      "ap50_95": 0.1547405722198795,
+      "f1": 0.3723576541301044
+    },
+    {
+      "class_id": 1,
+      "class_name": "inclusion",
+      "precision": 0.7188216842752571,
+      "recall": 0.8081395348837209,
+      "ap50": 0.8460324144201389,
+      "ap50_95": 0.46116705921015094,
+      "f1": 0.7608683368062126
+    },
+    {
+      "class_id": 2,
+      "class_name": "patches",
+      "precision": 0.8569800908305011,
+      "recall": 0.8731343283582089,
+      "ap50": 0.9381326486995785,
+      "ap50_95": 0.6311249413158895,
+      "f1": 0.8649817927932443
+    },
+    {
+      "class_id": 3,
+      "class_name": "pitted_surface",
+      "precision": 0.8183280937578014,
+      "recall": 0.7766388427138413,
+      "ap50": 0.854122923943614,
+      "ap50_95": 0.567802024750484,
+      "f1": 0.7969386313452048
+    },
+    {
+      "class_id": 4,
+      "class_name": "rolled-in_scale",
+      "precision": 0.6516352990282535,
+      "recall": 0.6,
+      "ap50": 0.6795476443203374,
+      "ap50_95": 0.3033941819394092,
+      "f1": 0.6247525612620587
+    },
+    {
+      "class_id": 5,
+      "class_name": "scratches",
+      "precision": 0.8122492066479303,
+      "recall": 0.9054992019567988,
+      "ap50": 0.9478828309551729,
+      "ap50_95": 0.5850768804773747,
+      "f1": 0.8563431113956428
+    }
+  ],
+  "test_image_count": 276,
+  "confusion_matrix_labels": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches",
+    "background"
+  ]
+}

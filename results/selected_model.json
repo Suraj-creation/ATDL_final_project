@@ -1,0 +1,20 @@
+{
+  "selected_run": "E0_baseline",
+  "checkpoint": "./outputs/checkpoints/phase3_baseline/E0_baseline/weights/best.pt",
+  "checkpoint_sha256": "24c2390c3baf517030b883211c99ec76204f8b6519786aca808fabfc7ce6ed7f",
+  "split_manifest_sha256": "bb25e67f5286333debe2267edcb4d5eddfee8a36373939e2c7907f95796dd944",
+  "validation_comparison": "./results/validation_model_comparison.csv",
+  "validation_comparison_sha256": "aa027eeabfb9d99b58afa970eaec2fed59aa30a96d9371c8669212bfe888f39d",
+  "selection_split": "val",
+  "selection_rule": "highest macro AP50 over minority classes; tie-break by overall mAP50",
+  "minority_classes": [
+    "crazing",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "minority_macro_AP50": 0.6933241038438257,
+  "validation_mAP50": 0.7577527283037178,
+  "validation_mAP50_95": 0.43475602300053257,
+  "validation_macro_F1": 0.6834022491193719
+}

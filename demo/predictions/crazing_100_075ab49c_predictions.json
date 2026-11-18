@@ -1,0 +1,41 @@
+{
+  "checkpoint": "./outputs/checkpoints/phase3_baseline/E0_baseline/weights/best.pt",
+  "input_image": "./data/processed/images/val/crazing_100_075ab49c.jpg",
+  "confidence_threshold": 0.25,
+  "detections": [
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "confidence": 0.8238693475723267,
+      "xyxy": [
+        1.7354965209960938,
+        1.287994384765625,
+        194.8863525390625,
+        91.9466552734375
+      ]
+    },
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "confidence": 0.4793318212032318,
+      "xyxy": [
+        3.330974578857422,
+        108.87378692626953,
+        197.4139404296875,
+        193.94485473632812
+      ]
+    },
+    {
+      "class_id": 0,
+      "class_name": "crazing",
+      "confidence": 0.26780253648757935,
+      "xyxy": [
+        99.39520263671875,
+        106.82037353515625,
+        199.89747619628906,
+        178.7370147705078
+      ]
+    }
+  ],
+  "rendered_output": "./demo/predictions/crazing_100_075ab49c_predictions.jpg"
+}

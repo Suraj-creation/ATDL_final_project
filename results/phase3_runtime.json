@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-11-16T11:22:20.986394+00:00",
+  "python": "3.14.9",
+  "gpu_names": [
+    "NVIDIA RTX 4000 Ada Generation"
+  ],
+  "torch_available": true,
+  "ultralytics_available": true,
+  "training_enabled": true,
+  "model": "yolov8n.pt",
+  "epochs": 50,
+  "imgsz": 640,
+  "batch": 16,
+  "seed": 42
+}
