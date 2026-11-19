@@ -1,0 +1,148 @@
+{
+  "experiment": "full_repeat_seed42",
+  "stage": "full_data_equal_exposure_interventions",
+  "treatment": "full_repeat",
+  "model_name": "yolo26n",
+  "seed": 42,
+  "pretrained_checkpoint": "yolo26n.pt",
+  "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "checkpoint": "outputs/checkpoints/phase8/interventions/full_repeat/seed_42/weights/best.pt",
+  "checkpoint_sha256": "ee51f1c17a377f4ca3cff7f9cc540cb6499975923a92b52787dc883bd6af2925",
+  "checkpoint_bytes": 5456453,
+  "parameters": 2536316,
+  "epochs_requested": 41,
+  "epochs_completed": 41,
+  "imgsz": 640,
+  "batch": 16,
+  "image_exposure_budget": 62850,
+  "planned_image_exposures": 63263,
+  "training_seconds": 277.52,
+  "global_metrics": {
+    "metrics/precision(B)": 0.6800381433173642,
+    "metrics/recall(B)": 0.7039785658900776,
+    "metrics/mAP50(B)": 0.7298829543913269,
+    "metrics/mAP50-95(B)": 0.42893031651585267,
+    "fitness": 0.42893031651585267,
+    "metrics/F1(B)": 0.6918012964702651
+  },
+  "validation_speed_ms_per_image": {
+    "preprocess": 0.34908253761195257,
+    "inference": 1.580171999987379,
+    "loss": 0.0008791654195226869,
+    "postprocess": 0.4309175413329928
+  },
+  "minority_macro_ap50": 0.6475108697902834,
+  "minority_macro_recall": 0.6323306307900034,
+  "minority_macro_f1": 0.6178191921181577,
+  "macro_f1": 0.6882566465452333,
+  "per_class": {
+    "crazing": {
+      "precision": 0.4178621908115984,
+      "recall": 0.3047619047619048,
+      "f1": 0.35246119795841135,
+      "ap50": 0.3592523705841923,
+      "ap50_95": 0.15190569427750156
+    },
+    "inclusion": {
+      "precision": 0.814110282033928,
+      "recall": 0.7697368421052632,
+      "f1": 0.7913019736154154,
+      "ap50": 0.8469831971989108,
+      "ap50_95": 0.4480990257980554
+    },
+    "patches": {
+      "precision": 0.815921788169206,
+      "recall": 0.924812030075188,
+      "f1": 0.866961137183354,
+      "ap50": 0.9422710499879172,
+      "ap50_95": 0.6279813401703894
+    },
+    "pitted_surface": {
+      "precision": 0.7494708865758262,
+      "recall": 0.7164179104477612,
+      "f1": 0.7325717579564048,
+      "ap50": 0.8046808835350158,
+      "ap50_95": 0.5095585665985725
+    },
+    "rolled-in_scale": {
+      "precision": 0.4947638062771622,
+      "recall": 0.5978862976939376,
+      "f1": 0.5414587877545056,
+      "ap50": 0.5149368037908705,
+      "ap50_95": 0.2659868843961201
+    },
+    "scratches": {
+      "precision": 0.7880999060364643,
+      "recall": 0.9102564102564102,
+      "f1": 0.844785024803309,
+      "ap50": 0.9111734212510552,
+      "ap50_95": 0.5700503878544768
+    }
+  },
+  "evaluated_split": "validation",
+  "selected_on": "validation only",
+  "dataset": {
+    "treatment": "full_repeat",
+    "base_train_images": 1257,
+    "expanded_train_images": 1543,
+    "train_image_counts_by_class": {
+      "crazing": 483,
+      "inclusion": 687,
+      "patches": 611,
+      "pitted_surface": 307,
+      "rolled-in_scale": 443,
+      "scratches": 384
+    },
+    "train_instance_counts_by_class": {
+      "crazing": 483,
+      "inclusion": 687,
+      "patches": 611,
+      "pitted_surface": 307,
+      "rolled-in_scale": 443,
+      "scratches": 384
+    },
+    "repeat_rate_by_class": {
+      "crazing": 1.19263,
+      "inclusion": 1.0,
+      "patches": 1.06037,
+      "pitted_surface": 1.49592,
+      "rolled-in_scale": 1.24531,
+      "scratches": 1.33756
+    },
+    "tail_classes": [
+      "crazing",
+      "pitted_surface",
+      "rolled-in_scale",
+      "scratches"
+    ],
+    "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+    "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+    "dataset_yaml": "data/phase8_generated/full_repeat/data.yaml",
+    "manifest": "data/phase8_generated/full_repeat/manifest.csv",
+    "manifest_sha256": "7f24c79557bf7dea5259f05ad555c76de3a6d02e4dc24ce33b9570f9f822130d",
+    "held_out_splits_modified": false,
+    "expanded_train_images_with_class": {
+      "crazing": 257,
+      "inclusion": 277,
+      "patches": 257,
+      "pitted_surface": 321,
+      "rolled-in_scale": 269,
+      "scratches": 281
+    },
+    "expanded_train_instances_by_class": {
+      "crazing": 593,
+      "inclusion": 698,
+      "patches": 638,
+      "pitted_surface": 476,
+      "rolled-in_scale": 561,
+      "scratches": 505
+    },
+    "expanded_manifest_rows": 1543
+  },
+  "environment": {
+    "python": "3.14.9",
+    "torch": "2.15.0+cu132",
+    "ultralytics": "8.4.215",
+    "gpu": "NVIDIA RTX 4000 Ada Generation"
+  }
+}

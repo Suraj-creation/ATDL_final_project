@@ -1,12 +1,14 @@
 # Class-Imbalance-Aware Steel Surface Defect Detection
 
-This final-year project studies object detection for the six NEU-DET hot-rolled steel surface defects and measures how controlled class imbalance affects a pretrained YOLOv8n detector. The current code is organized as VS Code Jupyter notebooks. It does not claim that imbalance-aware training improves the baseline: on the executed seed, the baseline scored best under the predeclared minority-class AP50 selection rule.
+This final-year project studies object detection for the six NEU-DET hot-rolled steel surface defects, compares pretrained YOLO model families, and tests full-data class-imbalance interventions. The work is organized as VS Code Jupyter notebooks with reusable experiment scripts. Phase 5 contains the original single-seed exploratory study; Phase 8 adds repeated-seed model transfer and equal-exposure, full-data intervention experiments. Results are reported as measured and are not guaranteed to outperform the baseline.
 
 ## Dataset and provenance
 
 The dataset used here is NEU-DET from Northeastern University. The dataset page describes 1,800 200×200 images across six defect categories and provides Pascal VOC-style detection annotations. In this local copy, all 1,800 files are readable JPEGs at 200×200; they are stored as three-channel RGB with identical channels. The audit found one exact duplicate image pair, `patches_101.jpg` and `patches_105.jpg`. Their XML boxes differ slightly. The preprocessing keeps the raw files unchanged, records the disagreement, assigns both paths to one split group, and converts only the deterministic canonical path `patches_101.jpg` into the modeling dataset.
 
-The generated dataset contains 1,799 unique image contents and 4,186 boxes. The original `train` and `validation` source folders are pooled, then repartitioned with seed 42 into a group-aware multilabel split. This follows the project methodology's proposed 70/15/15 image-level protocol; it does not preserve the source folder names as official holdouts. The model split is 1,257 train, 266 validation, and 276 test images. The raw source folders remain untouched.
+The generated dataset contains 1,799 unique image contents and 4,186 annotation rows. Three exact duplicate box rows occur in the processed labels; Ultralytics removes them while loading, leaving 4,183 unique boxes for evaluation. The original `train` and `validation` source folders are pooled, then repartitioned with seed 42 into a group-aware multilabel split. This follows the project methodology's proposed 70/15/15 image-level protocol; it does not preserve the source folder names as official holdouts. The model split is 1,257 train, 266 validation, and 276 test images. The raw source folders remain untouched.
+
+The exact repeated label rows are listed in `results/tables/exact_duplicate_yolo_label_rows.csv`, generated with the final report. These annotations are not rewritten in the raw or processed data; both Ultralytics and the Phase 8 operating-point evaluator deduplicate them when loading.
 
 Source: [NEU surface defect database](https://faculty.neu.edu.cn/songkechen/zh_CN/zhym/263269/). Cite the dataset and related literature in the final report. The local archive is `dataset/dataset.zip` and is not committed; after downloading it, extract the source folders under `data/raw/NEU-DET/NEU-DET/` so the audit and preprocessing notebooks can find the `train` and `validation` image/annotation folders. Do not redistribute the archive unless its source terms permit that.
 
@@ -18,7 +20,21 @@ Source: [NEU surface defect database](https://faculty.neu.edu.cn/songkechen/zh_C
 - Common settings: image size 640, batch 16, up to 50 epochs, patience 12, seed 42, deterministic training. Validation and test paths stay fixed across these experiments.
 - Model selection: highest validation macro AP50 over `crazing`, `pitted_surface`, `rolled-in_scale`, and `scratches`; tie-break by overall validation mAP50. The selected checkpoint is evaluated once on the test split.
 
-## Executed results (seed 42)
+### Phase 8 repeated-seed extension
+
+- Full-data pretrained model transfer: `yolov8n`, `yolo11n`, `yolo26n`, and `yolo11s`, seeds 42/43/44, fixed 1,257/266/276 train/validation/test split, 640 input, batch 16, and 50 requested epochs. The existing YOLOv8n seed-42 run is reused.
+- Compute-aware input-size ablation: after selecting the architecture family on validation at 640 pixels, compare that same family at 320 pixels with paired seeds 42/43/44. This is reported separately and is not added to candidate selection.
+- Full-data interventions: square-root inverse-frequency image repeat sampling, tail-image geometric/brightness augmentation, and their combination. Every original train image remains in each treatment. Runs target 62,850 image presentations with epoch counts adjusted for generated training-set size.
+- Candidate selection: mean validation minority macro AP50 over three seeds, with mean overall mAP50 as tie-break. Per-class confidence thresholds are calibrated on validation detections.
+- The Phase 8 final candidate is evaluated once on the existing test split. The original YOLOv8n test result was already generated by Phase 6, so the split is not a previously unseen blind holdout. Phase 8 selection remains validation-only, but test results are descriptive and this limitation is stated in the final report.
+- Observed validation leader: `full_combined` at tail macro AP50 `0.6984 ± 0.0080`, overall mAP50 `0.7572 ± 0.0053`, and mAP50–95 `0.4402 ± 0.0037` across three seeds. The three-seed YOLOv8n transfer group measured `0.6638 ± 0.0256` tail AP50 and `0.7358 ± 0.0190` mAP50. These are validation results; three seeds are limited evidence.
+- The validation-selected `full_combined` seed-42 checkpoint measured test mAP50 `0.7842`, mAP50–95 `0.4710`, and global F1 `0.7370`. The historical YOLOv8n test mAP50 was `0.7746`; that difference is descriptive because this test split was previously used.
+- In the paired YOLO26n resolution ablation, 320-pixel inputs reduced mean inference time by `1.113 ms/image` and training time by about `37%`, while reducing tail macro AP50 by `0.0311` and mAP50 by `0.0273` versus 640 pixels.
+- End-to-end implementation and record generation are in `notebook/atdl_phase8_comprehensive_evaluation.ipynb` and `src/atdl/`.
+- Final deliverables are `reports/FINAL_EXPERIMENT_REPORT.md`, `reports/FINAL_EXPERIMENT_REPORT.docx`, `reports/FINAL_EXPERIMENT_REPORT.pdf`, and `reports/ATDL_Final_Project_Results.pptx`; run JSON/CSV metrics, checkpoint manifests, treatment manifests, and figures are under `results/comprehensive/`.
+- The editable slide deck is included. Rebuilding it requires the `@oai/artifact-tool` runtime and the presentation-skill path configured through `ATDL_PRESENTATION_SKILL_DIR`.
+
+## Historical Phase 3–5 results (seed 42; exploratory)
 
 | Experiment | Training images | Minority macro AP50 (val) | mAP50 (val) | mAP50–95 (val) | Macro F1 (val) |
 |---|---:|---:|---:|---:|---:|
@@ -30,7 +46,7 @@ Source: [NEU surface defect database](https://faculty.neu.edu.cn/songkechen/zh_C
 | E3 targeted augmentation | 2,056 | 0.6070 | 0.6872 | 0.3831 | 0.6455 |
 | E4 combined | 2,707 | 0.6041 | 0.6899 | 0.3741 | 0.6667 |
 
-The selected E0 baseline test results are mAP50 0.7746, mAP50–95 0.4506, global F1 0.7191, and per-class macro F1 0.7127. Test AP50 is strongest for `scratches` (0.9479), `patches` (0.9381), and `pitted_surface` (0.8541), and weakest for `crazing` (0.3821). Test recall for `crazing` is 0.2900, making it the clearest error-analysis target. These are single-seed results and should be described as exploratory until repeated across seeds. Full records are in `results/validation_model_comparison.csv` and `results/final_test_metrics.json`.
+The historical E0 baseline test results are mAP50 0.7746, mAP50–95 0.4506, global F1 0.7191, and per-class macro F1 0.7127. Test AP50 is strongest for `scratches` (0.9479), `patches` (0.9381), and `pitted_surface` (0.8541), and weakest for `crazing` (0.3821). Test recall for `crazing` is 0.2900. These single-seed results remain historical context; the Phase 8 report presents the repeated-seed validation comparison and selected candidate evaluation.
 
 ## VS Code notebook workflow
 
@@ -44,22 +60,21 @@ Open this folder as the VS Code workspace. In each notebook, select the project'
 6. `notebook/atdl_phase6_evaluationS.ipynb` — validation selection and the one-time final test evaluation.
 7. `notebook/atdl_phase7_final_demoS.ipynb` — single-image inference demo using a validation image.
 8. `notebook/atdl_vscode_project_explorer.ipynb` — workspace/output inventory.
+9. `notebook/atdl_phase8_comprehensive_evaluation.ipynb` — repeated-seed transfer benchmark, full-data intervention study, validation selection, final test/error analysis, and report figures.
 
-The test notebook checks checkpoint and split hashes before reusing the saved test result. If you change the split or train a new final candidate after the test has been opened, establish a new untouched holdout for a fresh final evaluation; do not silently overwrite the current record. If you intentionally change the Phase 2 split, also set the Phase 4 `FORCE_REBUILD` and Phase 5 `FORCE_REBUILD_METHODS` flags before rerunning those phases.
+The Phase 6 notebook checks checkpoint and split hashes before reusing the saved baseline test result. Phase 8 saves its final candidate in a separate record and never overwrites the historical baseline. The current split has already been used for a baseline test evaluation; do not describe it as a fully blind holdout. If you intentionally change the Phase 2 split, rebuild Phase 4/5 variants and rerun every dependent experiment.
 
 ## Environment
 
 The executed environment was Python 3.14.9, PyTorch 2.15.0 with CUDA 13.2, Ultralytics 8.4.215, and an NVIDIA RTX 4000 Ada GPU. The PyTorch wheel must match the local CUDA driver. Once that is installed in the selected virtual environment, install the project packages with `python -m pip install -r requirements-local.txt`.
 
-The repository includes the raw dataset inventory and split manifest, project YAML, executed notebooks, all experiment `best.pt` checkpoints, per-run arguments/results/fingerprints, evaluation plots, metric CSV/JSON files, and the final demo prediction. See `results/checkpoint_manifest.csv` for checkpoint hashes and validation metrics; `results/selected_model.json` identifies the model chosen without using the test split. Duplicate last-epoch checkpoints and batch-preview images are omitted.
+The repository includes the raw dataset inventory and split manifest, project YAML, notebooks, experiment best checkpoints, per-run arguments/results/fingerprints, evaluation plots, metric CSV/JSON files, and the final demo prediction. Phase 8 results are under `results/comprehensive/`; duplicate last-epoch checkpoints and batch-preview images are omitted.
 
 The raw dataset archive, extracted images, and generated processed/imbalance datasets are excluded from Git. Obtain the dataset from its cited source and place it at the documented path before running the notebooks. This keeps the repository portable and avoids redistributing the dataset without permission.
 
-## Important interpretation and remaining work
+## Interpretation
 
-The validation trend declines from baseline to mild, moderate, and severe standard training on this seed. E3 and E4 recover some performance relative to the moderate standard run, but none surpass the baseline on the stated selection criterion. Mild standard training has a slightly higher macro F1 than baseline, while its minority AP50 is lower; this is a metric trade-off, not a contradiction.
-
-Before submission, run at least three training seeds for each key condition and report mean and standard deviation; inspect false positives and missed defects, especially for `crazing`; complete the literature review and formal report/presentation; and state that NEU-DET is a small benchmark dataset rather than evidence of production-line generalization. See `reports/FINAL_YEAR_PROJECT_READINESS_AUDIT.md` for the in-depth audit and prioritized checklist.
+The Phase 5 table above is exploratory: one seed, reduced training subsets, and differing image presentations. Use `reports/FINAL_EXPERIMENT_REPORT.md` and the Phase 8 candidate-comparison outputs as the primary repeated-seed results. NEU-DET is a small benchmark and does not establish production-line generalization. See `reports/FINAL_YEAR_PROJECT_READINESS_AUDIT.md` for dataset provenance and project history.
 
 ## References
 

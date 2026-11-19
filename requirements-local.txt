@@ -1,6 +1,7 @@
 # Common packages needed by the local data-preparation notebooks and runner.
 # Install PyTorch separately using a CUDA wheel compatible with the local driver.
 ipykernel>=7.0
+python-docx>=1.1
 nbclient>=0.10
 nbformat>=5.10
 numpy>=2.0

@@ -1,0 +1,15 @@
+{
+  "treatment": "full_targeted_aug",
+  "dataset_manifest_sha256": "fe7fcdffb7d8cc28dcc6efa55230c91395bccf2f8b0b5fd469536cd8ec44355a",
+  "dataset_yaml_sha256": "5fe317deea453d0f22396a235a12e027122be60b2a0ac6bbf52313fe13ac3b28",
+  "model": "yolo26n",
+  "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "seed": 43,
+  "epochs": 21,
+  "image_exposures": 61677,
+  "imgsz": 640,
+  "batch": 16,
+  "optimizer": "auto",
+  "deterministic": true,
+  "patience": 22
+}

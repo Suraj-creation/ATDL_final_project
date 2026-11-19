@@ -1,0 +1,60 @@
+{
+  "candidate": "full_combined",
+  "seed": 42,
+  "checkpoint_sha256": "4a28443feef68baf1b744f6896c99c6ee1904ff220e73f3fe8b616b1f8b9f97a",
+  "test_inference_started": true,
+  "test_inference_completed": true,
+  "test_save_dir": "/home/vsu/Desktop/atdl_final_project/outputs/logs/phase8/final_evaluation/full_combined/seed_42/final_test",
+  "global_metrics": {
+    "metrics/precision(B)": 0.7290016851871034,
+    "metrics/recall(B)": 0.7451771747178858,
+    "metrics/mAP50(B)": 0.7842156176189748,
+    "metrics/mAP50-95(B)": 0.4709893038609485,
+    "fitness": 0.4709893038609485,
+    "metrics/F1(B)": 0.7370006868329597
+  },
+  "per_class_ap_metrics": {
+    "crazing": {
+      "precision": 0.4763613244126414,
+      "recall": 0.3548218847410666,
+      "ap50": 0.3960560962565329,
+      "ap50_95": 0.16781341410970413
+    },
+    "inclusion": {
+      "precision": 0.7415753613985353,
+      "recall": 0.8008246348986917,
+      "ap50": 0.8433492382994134,
+      "ap50_95": 0.4843311291024984
+    },
+    "patches": {
+      "precision": 0.8611459317764556,
+      "recall": 0.9104477611940298,
+      "ap50": 0.9475547732108668,
+      "ap50_95": 0.637152045633117
+    },
+    "pitted_surface": {
+      "precision": 0.8248198846190031,
+      "recall": 0.8275862068965517,
+      "ap50": 0.8689325707650741,
+      "ap50_95": 0.5656101784006504
+    },
+    "rolled-in_scale": {
+      "precision": 0.6502618986749519,
+      "recall": 0.6777777777777778,
+      "ap50": 0.7245825724504819,
+      "ap50_95": 0.3309440546345138
+    },
+    "scratches": {
+      "precision": 0.8198457102410331,
+      "recall": 0.899604782799197,
+      "ap50": 0.92481845473148,
+      "ap50_95": 0.6400850012852064
+    }
+  },
+  "test_speed_ms_per_image": {
+    "preprocess": 1.0980632608700769,
+    "inference": 1.9343096956524042,
+    "loss": 0.001107456521334614,
+    "postprocess": 1.363377094202096
+  }
+}

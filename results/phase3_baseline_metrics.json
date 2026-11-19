@@ -2,7 +2,7 @@
   "experiment": "E0_baseline_validation",
   "checkpoint": "./outputs/checkpoints/phase3_baseline/E0_baseline/weights/best.pt",
   "checkpoint_sha256": "24c2390c3baf517030b883211c99ec76204f8b6519786aca808fabfc7ce6ed7f",
-  "dataset_fingerprint": "d48b4bc255046f991c61420904b2f67bcfbb4dd628a5b5621f9a1f88cdedaa66",
+  "dataset_fingerprint": "39bb62682c7d49515ac9c824b539ea7a891aa6ecc6924e79bf783b2e8d63043e",
   "split": "val",
   "metrics": {
     "metrics/precision(B)": 0.6971628778405871,

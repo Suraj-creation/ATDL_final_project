@@ -1,0 +1,15 @@
+{
+  "stage": "resolution_ablation",
+  "model_name": "yolo26n",
+  "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "data_yaml_sha256": "04a7b18303159ff1dc9c8c8fdf0ffa60aae39e39907809f88c084244d874deec",
+  "split_manifest_sha256": "bb25e67f5286333debe2267edcb4d5eddfee8a36373939e2c7907f95796dd944",
+  "imgsz": 320,
+  "reference_imgsz": 640,
+  "epochs": 50,
+  "batch": 16,
+  "patience": 12,
+  "optimizer": "auto",
+  "seed": 42,
+  "deterministic": true
+}

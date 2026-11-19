@@ -1,0 +1,59 @@
+{
+  "treatment": "full_combined",
+  "base_train_images": 1257,
+  "expanded_train_images": 3223,
+  "train_image_counts_by_class": {
+    "crazing": 483,
+    "inclusion": 687,
+    "patches": 611,
+    "pitted_surface": 307,
+    "rolled-in_scale": 443,
+    "scratches": 384
+  },
+  "train_instance_counts_by_class": {
+    "crazing": 483,
+    "inclusion": 687,
+    "patches": 611,
+    "pitted_surface": 307,
+    "rolled-in_scale": 443,
+    "scratches": 384
+  },
+  "repeat_rate_by_class": {
+    "crazing": 1.19263,
+    "inclusion": 1.0,
+    "patches": 1.06037,
+    "pitted_surface": 1.49592,
+    "rolled-in_scale": 1.24531,
+    "scratches": 1.33756
+  },
+  "tail_classes": [
+    "crazing",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+  "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+  "dataset_yaml": "data/phase8_generated/full_combined/data.yaml",
+  "manifest": "data/phase8_generated/full_combined/manifest.csv",
+  "manifest_sha256": "73bf4490c43f92f79f413189dc23cfae6d8990b58ee11a90528ec4e5c341a134",
+  "held_out_splits_modified": false,
+  "expanded_train_images_with_class": {
+    "crazing": 677,
+    "inclusion": 341,
+    "patches": 323,
+    "pitted_surface": 743,
+    "rolled-in_scale": 689,
+    "scratches": 701
+  },
+  "expanded_train_instances_by_class": {
+    "crazing": 1559,
+    "inclusion": 783,
+    "patches": 731,
+    "pitted_surface": 1090,
+    "rolled-in_scale": 1447,
+    "scratches": 1273
+  },
+  "expanded_manifest_rows": 3223,
+  "expanded_counts_deduplicated": true
+}

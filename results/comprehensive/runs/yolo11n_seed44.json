@@ -1,0 +1,94 @@
+{
+  "experiment": "yolo11n_seed44",
+  "stage": "pretrained_model_transfer",
+  "model_name": "yolo11n",
+  "pretrained_source": "Ultralytics COCO pretrained checkpoint",
+  "pretrained_checkpoint": "yolo11n.pt",
+  "pretrained_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "seed": 44,
+  "epochs_requested": 50,
+  "epochs_completed": 50,
+  "imgsz": 640,
+  "batch": 16,
+  "optimizer": "auto",
+  "dataset_split": "fixed Phase 2 70/15/15 image-group split",
+  "train_images": 1257,
+  "validation_images": 266,
+  "checkpoint": "outputs/checkpoints/phase8/model_transfer/yolo11n/seed_44/weights/best.pt",
+  "checkpoint_sha256": "96ee997bd69b79b763072182c398350286c0be16f289d9e30a99601daab6a455",
+  "checkpoint_bytes": 5508954,
+  "parameters": 2606098,
+  "training_seconds": 240.866,
+  "validation_speed_ms_per_image": {
+    "preprocess": 0.35263517669167266,
+    "inference": 1.6519050150373347,
+    "loss": 0.0002876879705554461,
+    "postprocess": 0.3981862218015316
+  },
+  "global_metrics": {
+    "metrics/precision(B)": 0.6328601461146613,
+    "metrics/recall(B)": 0.7184872305048028,
+    "metrics/mAP50(B)": 0.732268731494936,
+    "metrics/mAP50-95(B)": 0.4306498313739558,
+    "fitness": 0.4306498313739558,
+    "metrics/F1(B)": 0.6729608412254028
+  },
+  "macro_f1": 0.6675610491880821,
+  "minority_macro_ap50": 0.6591643420236905,
+  "minority_macro_recall": 0.6467844130740583,
+  "minority_macro_f1": 0.6052254520677289,
+  "per_class": {
+    "crazing": {
+      "precision": 0.48610566578076075,
+      "recall": 0.3333333333333333,
+      "f1": 0.3954784239024469,
+      "ap50": 0.402478712592262,
+      "ap50_95": 0.16685571395915974
+    },
+    "inclusion": {
+      "precision": 0.7022765678366114,
+      "recall": 0.7914549036649141,
+      "f1": 0.7442036857997394,
+      "ap50": 0.8203266396471242,
+      "ap50_95": 0.4181094721613835
+    },
+    "patches": {
+      "precision": 0.7647407216123506,
+      "recall": 0.9323308270676691,
+      "f1": 0.8402608010578373,
+      "ap50": 0.9366283812277298,
+      "ap50_95": 0.6139324092452421
+    },
+    "pitted_surface": {
+      "precision": 0.6930577450831419,
+      "recall": 0.7751268560749107,
+      "f1": 0.7317985362343837,
+      "ap50": 0.8158587231162264,
+      "ap50_95": 0.5448817794946496
+    },
+    "rolled-in_scale": {
+      "precision": 0.47039538950879245,
+      "recall": 0.5684210526315789,
+      "f1": 0.5147832313988325,
+      "ap50": 0.5363514723464947,
+      "ap50_95": 0.2828254587016065
+    },
+    "scratches": {
+      "precision": 0.6805847868663115,
+      "recall": 0.9102564102564102,
+      "f1": 0.7788416167352527,
+      "ap50": 0.8819684600397786,
+      "ap50_95": 0.5572941546816936
+    }
+  },
+  "evaluated_split": "validation",
+  "selected_on": "validation only",
+  "environment": {
+    "python": "3.14.9",
+    "torch": "2.15.0+cu132",
+    "torch_cuda": "13.2",
+    "ultralytics": "8.4.215",
+    "gpu": "NVIDIA RTX 4000 Ada Generation",
+    "gpu_vram_gb": 19.55
+  }
+}

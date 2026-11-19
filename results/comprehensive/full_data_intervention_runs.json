@@ -1,0 +1,1340 @@
+[
+  {
+    "experiment": "full_repeat_seed42",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_repeat",
+    "model_name": "yolo26n",
+    "seed": 42,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_repeat/seed_42/weights/best.pt",
+    "checkpoint_sha256": "ee51f1c17a377f4ca3cff7f9cc540cb6499975923a92b52787dc883bd6af2925",
+    "checkpoint_bytes": 5456453,
+    "parameters": 2536316,
+    "epochs_requested": 41,
+    "epochs_completed": 41,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 63263,
+    "training_seconds": 277.52,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6800381433173642,
+      "metrics/recall(B)": 0.7039785658900776,
+      "metrics/mAP50(B)": 0.7298829543913269,
+      "metrics/mAP50-95(B)": 0.42893031651585267,
+      "fitness": 0.42893031651585267,
+      "metrics/F1(B)": 0.6918012964702651
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.34908253761195257,
+      "inference": 1.580171999987379,
+      "loss": 0.0008791654195226869,
+      "postprocess": 0.4309175413329928
+    },
+    "minority_macro_ap50": 0.6475108697902834,
+    "minority_macro_recall": 0.6323306307900034,
+    "minority_macro_f1": 0.6178191921181577,
+    "macro_f1": 0.6882566465452333,
+    "per_class": {
+      "crazing": {
+        "precision": 0.4178621908115984,
+        "recall": 0.3047619047619048,
+        "f1": 0.35246119795841135,
+        "ap50": 0.3592523705841923,
+        "ap50_95": 0.15190569427750156
+      },
+      "inclusion": {
+        "precision": 0.814110282033928,
+        "recall": 0.7697368421052632,
+        "f1": 0.7913019736154154,
+        "ap50": 0.8469831971989108,
+        "ap50_95": 0.4480990257980554
+      },
+      "patches": {
+        "precision": 0.815921788169206,
+        "recall": 0.924812030075188,
+        "f1": 0.866961137183354,
+        "ap50": 0.9422710499879172,
+        "ap50_95": 0.6279813401703894
+      },
+      "pitted_surface": {
+        "precision": 0.7494708865758262,
+        "recall": 0.7164179104477612,
+        "f1": 0.7325717579564048,
+        "ap50": 0.8046808835350158,
+        "ap50_95": 0.5095585665985725
+      },
+      "rolled-in_scale": {
+        "precision": 0.4947638062771622,
+        "recall": 0.5978862976939376,
+        "f1": 0.5414587877545056,
+        "ap50": 0.5149368037908705,
+        "ap50_95": 0.2659868843961201
+      },
+      "scratches": {
+        "precision": 0.7880999060364643,
+        "recall": 0.9102564102564102,
+        "f1": 0.844785024803309,
+        "ap50": 0.9111734212510552,
+        "ap50_95": 0.5700503878544768
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_repeat",
+      "base_train_images": 1257,
+      "expanded_train_images": 1543,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_repeat/data.yaml",
+      "manifest": "data/phase8_generated/full_repeat/manifest.csv",
+      "manifest_sha256": "7f24c79557bf7dea5259f05ad555c76de3a6d02e4dc24ce33b9570f9f822130d",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 257,
+        "inclusion": 277,
+        "patches": 257,
+        "pitted_surface": 321,
+        "rolled-in_scale": 269,
+        "scratches": 281
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 593,
+        "inclusion": 698,
+        "patches": 638,
+        "pitted_surface": 476,
+        "rolled-in_scale": 561,
+        "scratches": 505
+      },
+      "expanded_manifest_rows": 1543
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_repeat_seed43",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_repeat",
+    "model_name": "yolo26n",
+    "seed": 43,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_repeat/seed_43/weights/best.pt",
+    "checkpoint_sha256": "164c3988e96bdfd687b21f430d94ef8a038e6208260cbb5b1d74308e069c1704",
+    "checkpoint_bytes": 5456453,
+    "parameters": 2536316,
+    "epochs_requested": 41,
+    "epochs_completed": 41,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 63263,
+    "training_seconds": 277.144,
+    "global_metrics": {
+      "metrics/precision(B)": 0.657409669165752,
+      "metrics/recall(B)": 0.7109553076897502,
+      "metrics/mAP50(B)": 0.7361920530702539,
+      "metrics/mAP50-95(B)": 0.4416920370975113,
+      "fitness": 0.4416920370975113,
+      "metrics/F1(B)": 0.6831348383294815
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3943628834711941,
+      "inference": 1.5724245676709754,
+      "loss": 0.0002676428389657618,
+      "postprocess": 0.40657583836686434
+    },
+    "minority_macro_ap50": 0.6565857146990445,
+    "minority_macro_recall": 0.6417527144285882,
+    "minority_macro_f1": 0.6055863432239148,
+    "macro_f1": 0.6768528185740655,
+    "per_class": {
+      "crazing": {
+        "precision": 0.46391148023203216,
+        "recall": 0.2857142857142857,
+        "f1": 0.35363282114997074,
+        "ap50": 0.3569436756346982,
+        "ap50_95": 0.15596258134985067
+      },
+      "inclusion": {
+        "precision": 0.8023280322485393,
+        "recall": 0.7894736842105263,
+        "f1": 0.79584895658193,
+        "ap50": 0.8493816890069434,
+        "ap50_95": 0.4493629317958672
+      },
+      "patches": {
+        "precision": 0.7856160944823695,
+        "recall": 0.9092473042136225,
+        "f1": 0.8429225819668038,
+        "ap50": 0.941427770618402,
+        "ap50_95": 0.634296571631398
+      },
+      "pitted_surface": {
+        "precision": 0.6025715231865599,
+        "recall": 0.7313432835820896,
+        "f1": 0.6607418016865172,
+        "ap50": 0.7525118871669532,
+        "ap50_95": 0.49569728022722115
+      },
+      "rolled-in_scale": {
+        "precision": 0.5338456599730379,
+        "recall": 0.6268763653410542,
+        "f1": 0.5766328538246467,
+        "ap50": 0.5722251589568682,
+        "ap50_95": 0.2890633146796956
+      },
+      "scratches": {
+        "precision": 0.7561852248719733,
+        "recall": 0.9230769230769231,
+        "f1": 0.8313378962345247,
+        "ap50": 0.9446621370376584,
+        "ap50_95": 0.6257695429010353
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_repeat",
+      "base_train_images": 1257,
+      "expanded_train_images": 1543,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_repeat/data.yaml",
+      "manifest": "data/phase8_generated/full_repeat/manifest.csv",
+      "manifest_sha256": "7f24c79557bf7dea5259f05ad555c76de3a6d02e4dc24ce33b9570f9f822130d",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 257,
+        "inclusion": 277,
+        "patches": 257,
+        "pitted_surface": 321,
+        "rolled-in_scale": 269,
+        "scratches": 281
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 593,
+        "inclusion": 698,
+        "patches": 638,
+        "pitted_surface": 476,
+        "rolled-in_scale": 561,
+        "scratches": 505
+      },
+      "expanded_manifest_rows": 1543
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_repeat_seed44",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_repeat",
+    "model_name": "yolo26n",
+    "seed": 44,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_repeat/seed_44/weights/best.pt",
+    "checkpoint_sha256": "0bfe35c5343c1e59e11ec9a52426dfe82fb78a57b3a0a80049dd5e1437fc7a4b",
+    "checkpoint_bytes": 5456453,
+    "parameters": 2536316,
+    "epochs_requested": 41,
+    "epochs_completed": 41,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 63263,
+    "training_seconds": 277.521,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6988068647363296,
+      "metrics/recall(B)": 0.7096027970909734,
+      "metrics/mAP50(B)": 0.7375062142208991,
+      "metrics/mAP50-95(B)": 0.4318428617308831,
+      "fitness": 0.4318428617308831,
+      "metrics/F1(B)": 0.7041634536927459
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3676271541249812,
+      "inference": 1.5477769548557891,
+      "loss": 0.0002637217953189318,
+      "postprocess": 0.4082164586542145
+    },
+    "minority_macro_ap50": 0.6698118576311124,
+    "minority_macro_recall": 0.644996300899618,
+    "minority_macro_f1": 0.639201715322457,
+    "macro_f1": 0.7018208715497967,
+    "per_class": {
+      "crazing": {
+        "precision": 0.49375253228755417,
+        "recall": 0.37142857142857144,
+        "f1": 0.4239431418903923,
+        "ap50": 0.3848693698096095,
+        "ap50_95": 0.1507459502315454
+      },
+      "inclusion": {
+        "precision": 0.793926130622728,
+        "recall": 0.7828947368421053,
+        "f1": 0.7883718460744099,
+        "ap50": 0.8302780250644725,
+        "ap50_95": 0.42606059769807525
+      },
+      "patches": {
+        "precision": 0.8385758703801046,
+        "recall": 0.8947368421052632,
+        "f1": 0.8657465219345424,
+        "ap50": 0.915511829736473,
+        "ap50_95": 0.6160921845808803
+      },
+      "pitted_surface": {
+        "precision": 0.7261288379288375,
+        "recall": 0.7164179104477612,
+        "f1": 0.7212406882068403,
+        "ap50": 0.8070298620017978,
+        "ap50_95": 0.507262482219467
+      },
+      "rolled-in_scale": {
+        "precision": 0.5188506592417563,
+        "recall": 0.5473684210526316,
+        "f1": 0.5327281632080019,
+        "ap50": 0.5550449847721425,
+        "ap50_95": 0.29733127551038596
+      },
+      "scratches": {
+        "precision": 0.821607157956997,
+        "recall": 0.944770300669508,
+        "f1": 0.8788948679845935,
+        "ap50": 0.9323032139408998,
+        "ap50_95": 0.5935646801449449
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_repeat",
+      "base_train_images": 1257,
+      "expanded_train_images": 1543,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_repeat/data.yaml",
+      "manifest": "data/phase8_generated/full_repeat/manifest.csv",
+      "manifest_sha256": "7f24c79557bf7dea5259f05ad555c76de3a6d02e4dc24ce33b9570f9f822130d",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 257,
+        "inclusion": 277,
+        "patches": 257,
+        "pitted_surface": 321,
+        "rolled-in_scale": 269,
+        "scratches": 281
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 593,
+        "inclusion": 698,
+        "patches": 638,
+        "pitted_surface": 476,
+        "rolled-in_scale": 561,
+        "scratches": 505
+      },
+      "expanded_manifest_rows": 1543
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_targeted_aug_seed42",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_targeted_aug",
+    "model_name": "yolo26n",
+    "seed": 42,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_targeted_aug/seed_42/weights/best.pt",
+    "checkpoint_sha256": "5180dc83014302e80c8287dc43b2f5fd93075f4643186d74155cb48d00a7a23e",
+    "checkpoint_bytes": 5453893,
+    "parameters": 2536316,
+    "epochs_requested": 21,
+    "epochs_completed": 21,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 61677,
+    "training_seconds": 258.194,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6607816737053266,
+      "metrics/recall(B)": 0.7409468844428458,
+      "metrics/mAP50(B)": 0.7501708217648467,
+      "metrics/mAP50-95(B)": 0.4292846986940337,
+      "fitness": 0.4292846986940337,
+      "metrics/F1(B)": 0.6985719447361596
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3339333947347166,
+      "inference": 1.5635391165417794,
+      "loss": 0.00032827820793219624,
+      "postprocess": 0.44794121051956226
+    },
+    "minority_macro_ap50": 0.6797358948408572,
+    "minority_macro_recall": 0.6757065716931389,
+    "minority_macro_f1": 0.6379607955490012,
+    "macro_f1": 0.6966178263881603,
+    "per_class": {
+      "crazing": {
+        "precision": 0.43373443039871895,
+        "recall": 0.3619047619047619,
+        "f1": 0.3945772337053818,
+        "ap50": 0.3937005271071984,
+        "ap50_95": 0.15649019353327506
+      },
+      "inclusion": {
+        "precision": 0.7603386856071043,
+        "recall": 0.8157894736842105,
+        "f1": 0.7870886545572069,
+        "ap50": 0.8406330472352808,
+        "ap50_95": 0.4383938633075809
+      },
+      "patches": {
+        "precision": 0.7691804950641198,
+        "recall": 0.9270655462003096,
+        "f1": 0.8407751215757501,
+        "ap50": 0.9414483039903713,
+        "ap50_95": 0.612851234414608
+      },
+      "pitted_surface": {
+        "precision": 0.6938508207821485,
+        "recall": 0.7780335356640148,
+        "f1": 0.7335348119602889,
+        "ap50": 0.8197226146244715,
+        "ap50_95": 0.4855253081451235
+      },
+      "rolled-in_scale": {
+        "precision": 0.5594323643404815,
+        "recall": 0.6526315789473685,
+        "f1": 0.6024487887386657,
+        "ap50": 0.5776261316041402,
+        "ap50_95": 0.2859387754819068
+      },
+      "scratches": {
+        "precision": 0.7481532460393866,
+        "recall": 0.9102564102564102,
+        "f1": 0.8212823477916684,
+        "ap50": 0.9278943060276188,
+        "ap50_95": 0.5965088172817079
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_targeted_aug",
+      "base_train_images": 1257,
+      "expanded_train_images": 2937,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_targeted_aug/data.yaml",
+      "manifest": "data/phase8_generated/full_targeted_aug/manifest.csv",
+      "manifest_sha256": "fe7fcdffb7d8cc28dcc6efa55230c91395bccf2f8b0b5fd469536cd8ec44355a",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 630,
+        "inclusion": 331,
+        "patches": 305,
+        "pitted_surface": 633,
+        "rolled-in_scale": 630,
+        "scratches": 630
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1449,
+        "inclusion": 772,
+        "patches": 704,
+        "pitted_surface": 921,
+        "rolled-in_scale": 1329,
+        "scratches": 1152
+      },
+      "expanded_manifest_rows": 2937,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_targeted_aug_seed43",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_targeted_aug",
+    "model_name": "yolo26n",
+    "seed": 43,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_targeted_aug/seed_43/weights/best.pt",
+    "checkpoint_sha256": "8d08ea0efbf4eb6ec89dc402757a4e9c313d0cc02f407c84b8c5990e6f02a447",
+    "checkpoint_bytes": 5453893,
+    "parameters": 2536316,
+    "epochs_requested": 21,
+    "epochs_completed": 21,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 61677,
+    "training_seconds": 257.919,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6642181543007849,
+      "metrics/recall(B)": 0.7094388813099467,
+      "metrics/mAP50(B)": 0.7441798004591428,
+      "metrics/mAP50-95(B)": 0.4406470899829966,
+      "fitness": 0.4406470899829966,
+      "metrics/F1(B)": 0.6860841856692413
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3628815864677269,
+      "inference": 1.5517719436016855,
+      "loss": 0.0002741278165599499,
+      "postprocess": 0.38044892106081807
+    },
+    "minority_macro_ap50": 0.678451297667264,
+    "minority_macro_recall": 0.6507944812049806,
+    "minority_macro_f1": 0.6327232920105896,
+    "macro_f1": 0.6834119185841906,
+    "per_class": {
+      "crazing": {
+        "precision": 0.4456907931953113,
+        "recall": 0.3293065124985691,
+        "f1": 0.3787597187282142,
+        "ap50": 0.38121028326247264,
+        "ap50_95": 0.162779725085182
+      },
+      "inclusion": {
+        "precision": 0.7341619823731473,
+        "recall": 0.781274911911938,
+        "f1": 0.7569861077960157,
+        "ap50": 0.82726703067088,
+        "ap50_95": 0.4323682713940764
+      },
+      "patches": {
+        "precision": 0.7606255587896074,
+        "recall": 0.8721804511278195,
+        "f1": 0.8125922356667694,
+        "ap50": 0.9240065814149204,
+        "ap50_95": 0.6214631542760938
+      },
+      "pitted_surface": {
+        "precision": 0.7004069271023677,
+        "recall": 0.7313432835820896,
+        "f1": 0.7155408786925316,
+        "ap50": 0.7822479751981395,
+        "ap50_95": 0.5077562619275859
+      },
+      "rolled-in_scale": {
+        "precision": 0.540810527352753,
+        "recall": 0.6322717184828535,
+        "f1": 0.5829756655457252,
+        "ap50": 0.6076062547909453,
+        "ap50_95": 0.3126533718416026
+      },
+      "scratches": {
+        "precision": 0.803613136991523,
+        "recall": 0.9102564102564102,
+        "f1": 0.8536169050758874,
+        "ap50": 0.9427406774174985,
+        "ap50_95": 0.6068617553734393
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_targeted_aug",
+      "base_train_images": 1257,
+      "expanded_train_images": 2937,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_targeted_aug/data.yaml",
+      "manifest": "data/phase8_generated/full_targeted_aug/manifest.csv",
+      "manifest_sha256": "fe7fcdffb7d8cc28dcc6efa55230c91395bccf2f8b0b5fd469536cd8ec44355a",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 630,
+        "inclusion": 331,
+        "patches": 305,
+        "pitted_surface": 633,
+        "rolled-in_scale": 630,
+        "scratches": 630
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1449,
+        "inclusion": 772,
+        "patches": 704,
+        "pitted_surface": 921,
+        "rolled-in_scale": 1329,
+        "scratches": 1152
+      },
+      "expanded_manifest_rows": 2937,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_targeted_aug_seed44",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_targeted_aug",
+    "model_name": "yolo26n",
+    "seed": 44,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_targeted_aug/seed_44/weights/best.pt",
+    "checkpoint_sha256": "bc5599224e9982fddf283a1863833cbe2425a6fc844963e76da4490b9309aa69",
+    "checkpoint_bytes": 5453893,
+    "parameters": 2536316,
+    "epochs_requested": 21,
+    "epochs_completed": 21,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 61677,
+    "training_seconds": 256.001,
+    "global_metrics": {
+      "metrics/precision(B)": 0.7236335452203687,
+      "metrics/recall(B)": 0.6841798541575251,
+      "metrics/mAP50(B)": 0.7618509140757768,
+      "metrics/mAP50-95(B)": 0.4386056121824407,
+      "fitness": 0.4386056121824407,
+      "metrics/F1(B)": 0.7033538587587604
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3356707593958621,
+      "inference": 1.5778220338387812,
+      "loss": 0.0002707217930933405,
+      "postprocess": 0.3612732443456535
+    },
+    "minority_macro_ap50": 0.7014089162015535,
+    "minority_macro_recall": 0.6186100068001976,
+    "minority_macro_f1": 0.6428015652371614,
+    "macro_f1": 0.6959857642934801,
+    "per_class": {
+      "crazing": {
+        "precision": 0.5598144812532068,
+        "recall": 0.3142857142857143,
+        "f1": 0.402566422032831,
+        "ap50": 0.4357953556709068,
+        "ap50_95": 0.17732431118376496
+      },
+      "inclusion": {
+        "precision": 0.8204176563768732,
+        "recall": 0.743421052631579,
+        "f1": 0.780023865872899,
+        "ap50": 0.8421057098497303,
+        "ap50_95": 0.43547285695876214
+      },
+      "patches": {
+        "precision": 0.7703855506983004,
+        "recall": 0.8872180451127819,
+        "f1": 0.824684458939336,
+        "ap50": 0.923364109798716,
+        "ap50_95": 0.5983650442462054
+      },
+      "pitted_surface": {
+        "precision": 0.7890491799046835,
+        "recall": 0.6699564455917285,
+        "f1": 0.7246422833855073,
+        "ap50": 0.7940955374082705,
+        "ap50_95": 0.5024078466004537
+      },
+      "rolled-in_scale": {
+        "precision": 0.5876324276113615,
+        "recall": 0.5894736842105263,
+        "f1": 0.5885516158428693,
+        "ap50": 0.6257416347874346,
+        "ap50_95": 0.31844821924637695
+      },
+      "scratches": {
+        "precision": 0.8145019754777868,
+        "recall": 0.9007241831128212,
+        "f1": 0.855445939687438,
+        "ap50": 0.9500031369396023,
+        "ap50_95": 0.5996153948590808
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_targeted_aug",
+      "base_train_images": 1257,
+      "expanded_train_images": 2937,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_targeted_aug/data.yaml",
+      "manifest": "data/phase8_generated/full_targeted_aug/manifest.csv",
+      "manifest_sha256": "fe7fcdffb7d8cc28dcc6efa55230c91395bccf2f8b0b5fd469536cd8ec44355a",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 630,
+        "inclusion": 331,
+        "patches": 305,
+        "pitted_surface": 633,
+        "rolled-in_scale": 630,
+        "scratches": 630
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1449,
+        "inclusion": 772,
+        "patches": 704,
+        "pitted_surface": 921,
+        "rolled-in_scale": 1329,
+        "scratches": 1152
+      },
+      "expanded_manifest_rows": 2937,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_combined_seed42",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_combined",
+    "model_name": "yolo26n",
+    "seed": 42,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_combined/seed_42/weights/best.pt",
+    "checkpoint_sha256": "4a28443feef68baf1b744f6896c99c6ee1904ff220e73f3fe8b616b1f8b9f97a",
+    "checkpoint_bytes": 5453765,
+    "parameters": 2536316,
+    "epochs_requested": 20,
+    "epochs_completed": 20,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 64460,
+    "training_seconds": 266.758,
+    "global_metrics": {
+      "metrics/precision(B)": 0.7355645520654573,
+      "metrics/recall(B)": 0.6866006266143737,
+      "metrics/mAP50(B)": 0.7611457872540054,
+      "metrics/mAP50-95(B)": 0.4445338832279077,
+      "fitness": 0.4445338832279077,
+      "metrics/F1(B)": 0.7102396963934701
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.335444842101807,
+      "inference": 1.5569923608976874,
+      "loss": 0.0002660789525686042,
+      "postprocess": 0.40027273682522047
+    },
+    "minority_macro_ap50": 0.7060114228263326,
+    "minority_macro_recall": 0.62036146623735,
+    "minority_macro_f1": 0.6538287258973465,
+    "macro_f1": 0.7023489005075848,
+    "per_class": {
+      "crazing": {
+        "precision": 0.5938465421753152,
+        "recall": 0.3142857142857143,
+        "f1": 0.411035911026864,
+        "ap50": 0.4526616820926948,
+        "ap50_95": 0.18453688638627724
+      },
+      "inclusion": {
+        "precision": 0.8025964806654302,
+        "recall": 0.743421052631579,
+        "f1": 0.7718762661407251,
+        "ap50": 0.8138933534532078,
+        "ap50_95": 0.42128070427698716
+      },
+      "patches": {
+        "precision": 0.7686285441754865,
+        "recall": 0.8947368421052632,
+        "f1": 0.8269022333153977,
+        "ap50": 0.9289356787654934,
+        "ap50_95": 0.6107135681921789
+      },
+      "pitted_surface": {
+        "precision": 0.8011035815951417,
+        "recall": 0.7164179104477612,
+        "f1": 0.7563977933597308,
+        "ap50": 0.8257362201127778,
+        "ap50_95": 0.5409054154633031
+      },
+      "rolled-in_scale": {
+        "precision": 0.6166893530675653,
+        "recall": 0.5789473684210527,
+        "f1": 0.5972226708581352,
+        "ap50": 0.6200146562182282,
+        "ap50_95": 0.32475660869522627
+      },
+      "scratches": {
+        "precision": 0.830522810713805,
+        "recall": 0.8717948717948718,
+        "f1": 0.850658528344656,
+        "ap50": 0.9256331328816296,
+        "ap50_95": 0.5850101163534742
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_combined",
+      "base_train_images": 1257,
+      "expanded_train_images": 3223,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_combined/data.yaml",
+      "manifest": "data/phase8_generated/full_combined/manifest.csv",
+      "manifest_sha256": "73bf4490c43f92f79f413189dc23cfae6d8990b58ee11a90528ec4e5c341a134",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 677,
+        "inclusion": 341,
+        "patches": 323,
+        "pitted_surface": 743,
+        "rolled-in_scale": 689,
+        "scratches": 701
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1559,
+        "inclusion": 783,
+        "patches": 731,
+        "pitted_surface": 1090,
+        "rolled-in_scale": 1447,
+        "scratches": 1273
+      },
+      "expanded_manifest_rows": 3223,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_combined_seed43",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_combined",
+    "model_name": "yolo26n",
+    "seed": 43,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_combined/seed_43/weights/best.pt",
+    "checkpoint_sha256": "34b19e8f807361dff56e487c21ed1095bfcd16346bf084ef0a8228cb65afbcf2",
+    "checkpoint_bytes": 5453765,
+    "parameters": 2536316,
+    "epochs_requested": 20,
+    "epochs_completed": 20,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 64460,
+    "training_seconds": 267.286,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6886032522471149,
+      "metrics/recall(B)": 0.7203630534959325,
+      "metrics/mAP50(B)": 0.7592530658249323,
+      "metrics/mAP50-95(B)": 0.43819806915506,
+      "fitness": 0.43819806915506,
+      "metrics/F1(B)": 0.7041252007433384
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3989333985086169,
+      "inference": 1.55973136089531,
+      "loss": 0.00028571051195757535,
+      "postprocess": 0.3998279586235561
+    },
+    "minority_macro_ap50": 0.6990200420203068,
+    "minority_macro_recall": 0.6613716479130718,
+    "minority_macro_f1": 0.6497960772522113,
+    "macro_f1": 0.6987908311716141,
+    "per_class": {
+      "crazing": {
+        "precision": 0.5664587956656612,
+        "recall": 0.37142857142857144,
+        "f1": 0.44866577507937816,
+        "ap50": 0.43572267385197805,
+        "ap50_95": 0.18380181427217998
+      },
+      "inclusion": {
+        "precision": 0.7192996476325242,
+        "recall": 0.7894736842105263,
+        "f1": 0.7527547457033852,
+        "ap50": 0.8249747218050885,
+        "ap50_95": 0.42108286415019186
+      },
+      "patches": {
+        "precision": 0.7990082467573237,
+        "recall": 0.8872180451127819,
+        "f1": 0.8408059323174544,
+        "ap50": 0.9344635050632779,
+        "ap50_95": 0.5990973921374929
+      },
+      "pitted_surface": {
+        "precision": 0.7451003542750283,
+        "recall": 0.7417328942969051,
+        "f1": 0.7434128108836516,
+        "ap50": 0.8244348616050029,
+        "ap50_95": 0.5171993330865485
+      },
+      "rolled-in_scale": {
+        "precision": 0.5441144999039578,
+        "recall": 0.6105263157894737,
+        "f1": 0.5754104938590645,
+        "ap50": 0.607890971774881,
+        "ap50_95": 0.31364544674284134
+      },
+      "scratches": {
+        "precision": 0.7576379692481952,
+        "recall": 0.9217988101373369,
+        "f1": 0.8316952291867511,
+        "ap50": 0.9280316608493652,
+        "ap50_95": 0.5943615645411049
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_combined",
+      "base_train_images": 1257,
+      "expanded_train_images": 3223,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_combined/data.yaml",
+      "manifest": "data/phase8_generated/full_combined/manifest.csv",
+      "manifest_sha256": "73bf4490c43f92f79f413189dc23cfae6d8990b58ee11a90528ec4e5c341a134",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 677,
+        "inclusion": 341,
+        "patches": 323,
+        "pitted_surface": 743,
+        "rolled-in_scale": 689,
+        "scratches": 701
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1559,
+        "inclusion": 783,
+        "patches": 731,
+        "pitted_surface": 1090,
+        "rolled-in_scale": 1447,
+        "scratches": 1273
+      },
+      "expanded_manifest_rows": 3223,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  },
+  {
+    "experiment": "full_combined_seed44",
+    "stage": "full_data_equal_exposure_interventions",
+    "treatment": "full_combined",
+    "model_name": "yolo26n",
+    "seed": 44,
+    "pretrained_checkpoint": "yolo26n.pt",
+    "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "checkpoint": "outputs/checkpoints/phase8/interventions/full_combined/seed_44/weights/best.pt",
+    "checkpoint_sha256": "eec7ad54f463ce6e4f3b66e136bd21a67114c7a50da6c5bd90c687fd0165751b",
+    "checkpoint_bytes": 5453765,
+    "parameters": 2536316,
+    "epochs_requested": 20,
+    "epochs_completed": 20,
+    "imgsz": 640,
+    "batch": 16,
+    "image_exposure_budget": 62850,
+    "planned_image_exposures": 64460,
+    "training_seconds": 268.353,
+    "global_metrics": {
+      "metrics/precision(B)": 0.6668885111963814,
+      "metrics/recall(B)": 0.7311089024514613,
+      "metrics/mAP50(B)": 0.7512477981359497,
+      "metrics/mAP50-95(B)": 0.4380020518852156,
+      "fitness": 0.4380020518852156,
+      "metrics/F1(B)": 0.6975236473521752
+    },
+    "validation_speed_ms_per_image": {
+      "preprocess": 0.3232578909657769,
+      "inference": 1.5774666729232838,
+      "loss": 0.0002584210550478183,
+      "postprocess": 0.35389384587127515
+    },
+    "minority_macro_ap50": 0.6900617884528423,
+    "minority_macro_recall": 0.672556210820049,
+    "minority_macro_f1": 0.6438807282621215,
+    "macro_f1": 0.6957828813714423,
+    "per_class": {
+      "crazing": {
+        "precision": 0.5050212611317055,
+        "recall": 0.45714285714285713,
+        "f1": 0.47989081664289784,
+        "ap50": 0.45229784699300435,
+        "ap50_95": 0.19390196515482896
+      },
+      "inclusion": {
+        "precision": 0.7342283948028461,
+        "recall": 0.8092105263157895,
+        "f1": 0.7698980991924068,
+        "ap50": 0.8278535398301599,
+        "ap50_95": 0.4255379731844416
+      },
+      "patches": {
+        "precision": 0.7784385935129845,
+        "recall": 0.8872180451127819,
+        "f1": 0.8292762759877609,
+        "ap50": 0.9193860951741696,
+        "ap50_95": 0.6071506966841209
+      },
+      "pitted_surface": {
+        "precision": 0.7426611580741926,
+        "recall": 0.7313432835820896,
+        "f1": 0.7369587697097459,
+        "ap50": 0.8235702726733207,
+        "ap50_95": 0.5274064909483895
+      },
+      "rolled-in_scale": {
+        "precision": 0.4853423799305536,
+        "recall": 0.5658412666578133,
+        "f1": 0.5225095499039156,
+        "ap50": 0.5411323434445359,
+        "ap50_95": 0.281548335507097
+      },
+      "scratches": {
+        "precision": 0.7556392797260056,
+        "recall": 0.9358974358974359,
+        "f1": 0.8361637767919267,
+        "ap50": 0.943246690700508,
+        "ap50_95": 0.5924668498324157
+      }
+    },
+    "evaluated_split": "validation",
+    "selected_on": "validation only",
+    "dataset": {
+      "treatment": "full_combined",
+      "base_train_images": 1257,
+      "expanded_train_images": 3223,
+      "train_image_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "train_instance_counts_by_class": {
+        "crazing": 483,
+        "inclusion": 687,
+        "patches": 611,
+        "pitted_surface": 307,
+        "rolled-in_scale": 443,
+        "scratches": 384
+      },
+      "repeat_rate_by_class": {
+        "crazing": 1.19263,
+        "inclusion": 1.0,
+        "patches": 1.06037,
+        "pitted_surface": 1.49592,
+        "rolled-in_scale": 1.24531,
+        "scratches": 1.33756
+      },
+      "tail_classes": [
+        "crazing",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+      "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+      "dataset_yaml": "data/phase8_generated/full_combined/data.yaml",
+      "manifest": "data/phase8_generated/full_combined/manifest.csv",
+      "manifest_sha256": "73bf4490c43f92f79f413189dc23cfae6d8990b58ee11a90528ec4e5c341a134",
+      "held_out_splits_modified": false,
+      "expanded_train_images_with_class": {
+        "crazing": 677,
+        "inclusion": 341,
+        "patches": 323,
+        "pitted_surface": 743,
+        "rolled-in_scale": 689,
+        "scratches": 701
+      },
+      "expanded_train_instances_by_class": {
+        "crazing": 1559,
+        "inclusion": 783,
+        "patches": 731,
+        "pitted_surface": 1090,
+        "rolled-in_scale": 1447,
+        "scratches": 1273
+      },
+      "expanded_manifest_rows": 3223,
+      "expanded_counts_deduplicated": true
+    },
+    "environment": {
+      "python": "3.14.9",
+      "torch": "2.15.0+cu132",
+      "ultralytics": "8.4.215",
+      "gpu": "NVIDIA RTX 4000 Ada Generation"
+    }
+  }
+]

@@ -1,0 +1,4 @@
+split,label_file,class_id,duplicate_rows,x_center,y_center,width,height
+train,data/processed/labels/train/inclusion_62_355a62a5.txt,1,1,0.2425,0.54,0.105,0.32
+train,data/processed/labels/train/patches_198_f5929ee9.txt,2,1,0.8925,0.5625,0.215,0.455
+val,data/processed/labels/val/crazing_120_3a37b2b9.txt,0,1,0.2925,0.565,0.585,0.33

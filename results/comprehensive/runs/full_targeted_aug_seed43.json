@@ -1,0 +1,149 @@
+{
+  "experiment": "full_targeted_aug_seed43",
+  "stage": "full_data_equal_exposure_interventions",
+  "treatment": "full_targeted_aug",
+  "model_name": "yolo26n",
+  "seed": 43,
+  "pretrained_checkpoint": "yolo26n.pt",
+  "pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "checkpoint": "outputs/checkpoints/phase8/interventions/full_targeted_aug/seed_43/weights/best.pt",
+  "checkpoint_sha256": "8d08ea0efbf4eb6ec89dc402757a4e9c313d0cc02f407c84b8c5990e6f02a447",
+  "checkpoint_bytes": 5453893,
+  "parameters": 2536316,
+  "epochs_requested": 21,
+  "epochs_completed": 21,
+  "imgsz": 640,
+  "batch": 16,
+  "image_exposure_budget": 62850,
+  "planned_image_exposures": 61677,
+  "training_seconds": 257.919,
+  "global_metrics": {
+    "metrics/precision(B)": 0.6642181543007849,
+    "metrics/recall(B)": 0.7094388813099467,
+    "metrics/mAP50(B)": 0.7441798004591428,
+    "metrics/mAP50-95(B)": 0.4406470899829966,
+    "fitness": 0.4406470899829966,
+    "metrics/F1(B)": 0.6860841856692413
+  },
+  "validation_speed_ms_per_image": {
+    "preprocess": 0.3628815864677269,
+    "inference": 1.5517719436016855,
+    "loss": 0.0002741278165599499,
+    "postprocess": 0.38044892106081807
+  },
+  "minority_macro_ap50": 0.678451297667264,
+  "minority_macro_recall": 0.6507944812049806,
+  "minority_macro_f1": 0.6327232920105896,
+  "macro_f1": 0.6834119185841906,
+  "per_class": {
+    "crazing": {
+      "precision": 0.4456907931953113,
+      "recall": 0.3293065124985691,
+      "f1": 0.3787597187282142,
+      "ap50": 0.38121028326247264,
+      "ap50_95": 0.162779725085182
+    },
+    "inclusion": {
+      "precision": 0.7341619823731473,
+      "recall": 0.781274911911938,
+      "f1": 0.7569861077960157,
+      "ap50": 0.82726703067088,
+      "ap50_95": 0.4323682713940764
+    },
+    "patches": {
+      "precision": 0.7606255587896074,
+      "recall": 0.8721804511278195,
+      "f1": 0.8125922356667694,
+      "ap50": 0.9240065814149204,
+      "ap50_95": 0.6214631542760938
+    },
+    "pitted_surface": {
+      "precision": 0.7004069271023677,
+      "recall": 0.7313432835820896,
+      "f1": 0.7155408786925316,
+      "ap50": 0.7822479751981395,
+      "ap50_95": 0.5077562619275859
+    },
+    "rolled-in_scale": {
+      "precision": 0.540810527352753,
+      "recall": 0.6322717184828535,
+      "f1": 0.5829756655457252,
+      "ap50": 0.6076062547909453,
+      "ap50_95": 0.3126533718416026
+    },
+    "scratches": {
+      "precision": 0.803613136991523,
+      "recall": 0.9102564102564102,
+      "f1": 0.8536169050758874,
+      "ap50": 0.9427406774174985,
+      "ap50_95": 0.6068617553734393
+    }
+  },
+  "evaluated_split": "validation",
+  "selected_on": "validation only",
+  "dataset": {
+    "treatment": "full_targeted_aug",
+    "base_train_images": 1257,
+    "expanded_train_images": 2937,
+    "train_image_counts_by_class": {
+      "crazing": 483,
+      "inclusion": 687,
+      "patches": 611,
+      "pitted_surface": 307,
+      "rolled-in_scale": 443,
+      "scratches": 384
+    },
+    "train_instance_counts_by_class": {
+      "crazing": 483,
+      "inclusion": 687,
+      "patches": 611,
+      "pitted_surface": 307,
+      "rolled-in_scale": 443,
+      "scratches": 384
+    },
+    "repeat_rate_by_class": {
+      "crazing": 1.19263,
+      "inclusion": 1.0,
+      "patches": 1.06037,
+      "pitted_surface": 1.49592,
+      "rolled-in_scale": 1.24531,
+      "scratches": 1.33756
+    },
+    "tail_classes": [
+      "crazing",
+      "pitted_surface",
+      "rolled-in_scale",
+      "scratches"
+    ],
+    "repetition_formula": "r_c=max(1,sqrt(max_class_box_count/class_box_count)); image repeat rate=max r_c over tail classes present; deterministic stochastic rounding, max 3 copies",
+    "augmentation": "All originals retained; each tail-containing image adds horizontal flip + brightness 0.92 and 90-degree clockwise rotation + brightness 1.08; boxes transformed analytically.",
+    "dataset_yaml": "data/phase8_generated/full_targeted_aug/data.yaml",
+    "manifest": "data/phase8_generated/full_targeted_aug/manifest.csv",
+    "manifest_sha256": "fe7fcdffb7d8cc28dcc6efa55230c91395bccf2f8b0b5fd469536cd8ec44355a",
+    "held_out_splits_modified": false,
+    "expanded_train_images_with_class": {
+      "crazing": 630,
+      "inclusion": 331,
+      "patches": 305,
+      "pitted_surface": 633,
+      "rolled-in_scale": 630,
+      "scratches": 630
+    },
+    "expanded_train_instances_by_class": {
+      "crazing": 1449,
+      "inclusion": 772,
+      "patches": 704,
+      "pitted_surface": 921,
+      "rolled-in_scale": 1329,
+      "scratches": 1152
+    },
+    "expanded_manifest_rows": 2937,
+    "expanded_counts_deduplicated": true
+  },
+  "environment": {
+    "python": "3.14.9",
+    "torch": "2.15.0+cu132",
+    "ultralytics": "8.4.215",
+    "gpu": "NVIDIA RTX 4000 Ada Generation"
+  }
+}

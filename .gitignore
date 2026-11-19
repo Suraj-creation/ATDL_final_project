@@ -9,6 +9,7 @@ __pycache__/
 data/raw/
 data/processed/
 data/imbalance_variants/
+data/phase8_generated/
 dataset/*.zip
 
 # Keep each experiment's best checkpoint and reproducibility/evaluation files.
@@ -29,3 +30,6 @@ outputs/plots/
 
 # Local editor state
 .vscode/
+.presentation-build/
+.chart-data-*/
+src/atdl/node_modules

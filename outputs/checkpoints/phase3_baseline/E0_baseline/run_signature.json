@@ -1,5 +1,5 @@
 {
-  "dataset_fingerprint": "d48b4bc255046f991c61420904b2f67bcfbb4dd628a5b5621f9a1f88cdedaa66",
+  "dataset_fingerprint": "39bb62682c7d49515ac9c824b539ea7a891aa6ecc6924e79bf783b2e8d63043e",
   "model": "yolov8n.pt",
   "model_weights_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
   "epochs": 50,

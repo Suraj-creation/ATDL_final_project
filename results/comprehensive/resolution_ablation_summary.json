@@ -1,0 +1,126 @@
+{
+  "model_name": "yolo26n",
+  "selection_split_for_model_family": "validation",
+  "comparison": "paired seeds; same COCO pretrained weights, dataset split, epochs, batch, optimizer and patience; only imgsz changes from 640 to 320",
+  "imgsz_640_reference": {
+    "mean_tail_macro_AP50": 0.679027937344546,
+    "sd_tail_macro_AP50": 0.012135983973670699,
+    "mean_mAP50": 0.748896418541454,
+    "sd_mAP50": 0.007960199656907533,
+    "mean_mAP50_95": 0.43857659475885236,
+    "sd_mAP50_95": 0.0003900086702886653,
+    "mean_inference_ms_per_image": 1.5642741854650208,
+    "sd_inference_ms_per_image": 0.01736141908243981,
+    "mean_training_seconds": 284.80333333333334
+  },
+  "imgsz_320": {
+    "n_seeds": 3,
+    "mean_tail_macro_AP50": 0.6479071548794405,
+    "sd_tail_macro_AP50": 0.016481038258383617,
+    "mean_mAP50": 0.7215876433103897,
+    "sd_mAP50": 0.01619922783484536,
+    "mean_mAP50_95": 0.4193814146452301,
+    "sd_mAP50_95": 0.004853433453336451,
+    "mean_inference_ms_per_image": 0.45103046115746975,
+    "sd_inference_ms_per_image": 0.02192605618049486,
+    "mean_training_seconds": 179.185
+  },
+  "paired_deltas": {
+    "minority_macro_ap50": {
+      "mean_delta_320_minus_640": -0.031120782465105485,
+      "sd_paired_delta": 0.005893521252219768,
+      "per_seed_delta": [
+        -0.029919777082891064,
+        -0.025920269529248308,
+        -0.03752230078317709
+      ]
+    },
+    "minority_macro_recall": {
+      "mean_delta_320_minus_640": -0.0029886603733814874,
+      "sd_paired_delta": 0.044752848234222174,
+      "per_seed_delta": [
+        -0.018137712268422868,
+        0.047372511798005945,
+        -0.03820078064972754
+      ]
+    },
+    "minority_macro_f1": {
+      "mean_delta_320_minus_640": -0.013558664144915392,
+      "sd_paired_delta": 0.03423082474808358,
+      "per_seed_delta": [
+        -0.017907610360226256,
+        0.022638806523893606,
+        -0.04540718859841353
+      ]
+    },
+    "metrics/mAP50(B)": {
+      "mean_delta_320_minus_640": -0.02730877523106423,
+      "sd_paired_delta": 0.012631096518319987,
+      "per_seed_delta": [
+        -0.022674358815681805,
+        -0.017649496573996615,
+        -0.04160247030351427
+      ]
+    },
+    "metrics/mAP50-95(B)": {
+      "mean_delta_320_minus_640": -0.01919518011362224,
+      "sd_paired_delta": 0.005234289059478863,
+      "per_seed_delta": [
+        -0.020217374607062077,
+        -0.013525195315175098,
+        -0.02384297041862954
+      ]
+    },
+    "metrics/precision(B)": {
+      "mean_delta_320_minus_640": -0.034091201160716435,
+      "sd_paired_delta": 0.01704228784123294,
+      "per_seed_delta": [
+        -0.019679104274178405,
+        -0.029693018808141347,
+        -0.05290148039982956
+      ]
+    },
+    "metrics/recall(B)": {
+      "mean_delta_320_minus_640": -0.003461981233626251,
+      "sd_paired_delta": 0.03986571105700712,
+      "per_seed_delta": [
+        -0.009811051204588583,
+        0.03919725839756105,
+        -0.03977215089385122
+      ]
+    },
+    "metrics/F1(B)": {
+      "mean_delta_320_minus_640": -0.018320928977830813,
+      "sd_paired_delta": 0.02664183154947263,
+      "per_seed_delta": [
+        -0.014837329138637112,
+        0.006407737426963989,
+        -0.04653319522181931
+      ]
+    },
+    "validation_inference_ms_per_image": {
+      "mean_delta_320_minus_640": -1.1132437243075513,
+      "sd_paired_delta": 0.004696542862702852,
+      "per_seed_delta": [
+        -1.11580958269783,
+        -1.1078231879655234,
+        -1.1160984022593001
+      ]
+    },
+    "training_seconds": {
+      "mean_delta_320_minus_640": -105.61833333333335,
+      "sd_paired_delta": 0.6607195572505375,
+      "per_seed_delta": [
+        -106.14200000000002,
+        -105.83700000000002,
+        -104.876
+      ]
+    }
+  },
+  "test_split_read": false,
+  "records": [
+    "yolo26n_imgsz320_seed42",
+    "yolo26n_imgsz320_seed43",
+    "yolo26n_imgsz320_seed44"
+  ]
+}

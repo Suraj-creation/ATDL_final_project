@@ -1,0 +1,17 @@
+{
+  "stage": "pretrained_model_transfer",
+  "model_name": "yolo11n",
+  "pretrained_checkpoint": "yolo11n.pt",
+  "pretrained_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "data_yaml_sha256": "04a7b18303159ff1dc9c8c8fdf0ffa60aae39e39907809f88c084244d874deec",
+  "split_manifest_sha256": "bb25e67f5286333debe2267edcb4d5eddfee8a36373939e2c7907f95796dd944",
+  "conversion_manifest_sha256": "c8430d79bd968e90523abe172871878e02f5e472278b88eb6af0535a5bd38c2e",
+  "epochs": 50,
+  "imgsz": 640,
+  "batch": 16,
+  "patience": 12,
+  "optimizer": "auto",
+  "seed": 44,
+  "workers": 4,
+  "deterministic": true
+}

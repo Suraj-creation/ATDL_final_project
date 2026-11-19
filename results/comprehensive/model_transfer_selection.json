@@ -1,0 +1,16 @@
+{
+  "selection_split": "validation",
+  "selection_rule": "highest mean minority macro AP50 across seeds 42, 43, 44; tie-break by mean overall mAP50",
+  "minority_classes": [
+    "crazing",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "selected_model": "yolo26n",
+  "selected_pretrained_checkpoint": "yolo26n.pt",
+  "selected_pretrained_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "mean_minority_macro_AP50": 0.679027937344546,
+  "mean_validation_mAP50": 0.748896418541454,
+  "test_split_read": false
+}
