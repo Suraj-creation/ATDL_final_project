@@ -1,0 +1,7 @@
+# Install the CPU or CUDA PyTorch and torchvision wheels for the host first.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+ultralytics==8.4.215
+Pillow>=10,<14
+numpy>=2,<3
+opencv-python>=4.10,<6

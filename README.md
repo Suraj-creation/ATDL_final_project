@@ -2,6 +2,10 @@
 
 This final-year project studies object detection for the six NEU-DET hot-rolled steel surface defects, compares pretrained YOLO model families, and tests full-data class-imbalance interventions. The work is organized as VS Code Jupyter notebooks with reusable experiment scripts. Phase 5 contains the original single-seed exploratory study; Phase 8 adds repeated-seed model transfer and equal-exposure, full-data intervention experiments. Results are reported as measured and are not guaranteed to outperform the baseline.
 
+## Steel Inspection Lab
+
+Run the selected Phase 8 detector on images, recorded clips, or a webcam. Inspect pipeline stages and compare saved checkpoints on the same frame. See [the lab setup and CUDA handoff](web/README.md).
+
 ## Dataset and provenance
 
 The dataset used here is NEU-DET from Northeastern University. The dataset page describes 1,800 200×200 images across six defect categories and provides Pascal VOC-style detection annotations. In this local copy, all 1,800 files are readable JPEGs at 200×200; they are stored as three-channel RGB with identical channels. The audit found one exact duplicate image pair, `patches_101.jpg` and `patches_105.jpg`. Their XML boxes differ slightly. The preprocessing keeps the raw files unchanged, records the disagreement, assigns both paths to one split group, and converts only the deterministic canonical path `patches_101.jpg` into the modeling dataset.
